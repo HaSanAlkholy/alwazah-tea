@@ -13,17 +13,11 @@
     align-items: center;
     background-color: white;
 
-    svg {
-        margin: auto;
-        background: rgb(255, 255, 255);
-        display: block;
-        shape-rendering: auto;
-        width: 200px;
-        height: 200px;
-    }
-
     .containe {
-        width: 230px;
+        img {
+            animation: vibe 1s ease forwards infinite;
+            max-width: 230px;
+        }
     }
 }
 
@@ -34,7 +28,7 @@
 
     .swiper-pagination {
         position: static;
-        margin-top: 50px;
+        margin-top: 30px;
         display: block;
     }
 
@@ -283,16 +277,51 @@ nav {
             text-align: start;
             width: 30%;
             img {
-                max-width: 100%;
+                max-width: 255px;
+                width: 100%;
+                @media (max-width: 992px) {
+                    max-width: 200px;
+                    width: 100%;
+                }
+                @media (max-width: 992px) {
+                    max-width: 80%;
+                    width: unset;
+                }
             }
             @media (max-width: 992px) {
-                width: unset;
-                img {
-                    max-width: 75%;
-                }
+                width: 40%;
+                text-align: center;
             }
         }
 
+        .nav-icons-sm {
+            justify-content: flex-start;
+            align-items: center;
+            font-size: 16px;
+            width: 30%;
+            display: none;
+
+            & > div {
+                cursor: pointer;
+                font-family: TajawalMedium;
+
+                span {
+                    font-size: 22px;
+                    color: black;
+                    transition: all 0.5s;
+                }
+
+                &:hover {
+                    span {
+                        color: $color1;
+                    }
+                }
+            }
+
+            @media (max-width: 992px) {
+                display: flex;
+            }
+        }
         .nav-icons {
             display: flex;
             justify-content: flex-end;
@@ -344,19 +373,9 @@ nav {
                 }
             }
 
-            .menu {
-                display: none;
-            }
-
             @media (max-width: 992px) {
-                width: fit-content;
-
                 & > div {
                     margin-inline-start: 25px;
-                }
-
-                .menu {
-                    display: block;
                 }
 
                 .user,
@@ -415,6 +434,29 @@ nav {
                     }
                 }
 
+                .sm-slide {
+                    .drop {
+                        color: black;
+                        transition: all 0.5s;
+                        font-weight: 500;
+                        font-family: TajawalMedium;
+                        font-size: 17px;
+                        text-transform: capitalize;
+                        cursor: pointer;
+                        
+                        &:hover {
+                            color: $color1;
+                        }
+                        span {
+                            display: none;
+                        }
+                    }
+
+                    ul {
+                        top: calc(100% + 12px);
+                    }
+                }
+
                 .sm-link {
                     display: none;
                     @media (max-width: 992px) {
@@ -453,10 +495,11 @@ nav {
             @media (max-width: 992px) {
                 position: absolute;
                 top: 0;
+                //right: 0;
                 right: -150%;
                 background-color: white;
                 height: 100vh;
-                width: 60%;
+                width: 100%;
                 transition: all 0.5s;
                 flex-direction: column;
                 text-align: right;
@@ -466,7 +509,7 @@ nav {
                 & > ul {
                     display: flex;
                     flex-direction: column;
-                    align-items: flex-start;
+                    align-items: center;
                     margin-top: 30px;
                     li {
                         margin: 10px 0;
@@ -475,12 +518,39 @@ nav {
                             font-size: 18px;
                         }
                     }
+
+                    .sm-slide {
+                        .drop {
+                            span {
+                                display: inline;
+                            }
+                        }
+                    }
+
+                    .slide {
+                        width: fit-content;
+
+                        .drop {
+                            justify-content: center;
+                            align-items: center;
+
+                            span {
+                                margin-inline-start: 5px;
+                            }
+                        }
+                        ul {
+                            margin-inline-start: 0;
+                            text-align: center;
+                        }
+                    }
                 }
+
                 .nava-head {
                     display: flex;
                     margin: 9px 0;
                     font-size: 17px;
                     position: relative;
+                    justify-content: center;
 
                     a {
                         color: black;
@@ -515,8 +585,6 @@ nav {
                 }
             }
             @media (max-width: 576px) {
-                width: 85%;
-
                 .nava-head {
                     font-size: 16px;
 
@@ -543,6 +611,7 @@ nav {
 
         .nava-content {
             right: 0;
+            left: unset;
             min-height: 100%;
             max-height: 100%;
             height: 100%;
@@ -554,12 +623,12 @@ nav {
 .up {
     height: 50px;
     width: 50px;
-    background-color: $color1;
+    background-color: #c72329a6;
+    right: 20px;
+    bottom: 30px;
     color: white;
     font-size: 17px;
     position: fixed;
-    right: 45px;
-    bottom: 125px;
     z-index: 999;
     border-radius: 100%;
     cursor: pointer;
@@ -993,7 +1062,7 @@ header {
     .categories-head {
         h2 {
             font-size: 26px;
-            margin-bottom: 50px;
+            margin-bottom: 20px;
             font-family: TajawalBold;
             text-transform: capitalize;
         }
@@ -1025,7 +1094,7 @@ header {
 
             @media (max-width: 768px) {
                 width: 100%;
-                margin: 20px 0;
+                margin: 30px 0;
             }
         }
     }
@@ -1076,7 +1145,7 @@ header {
 
         .banner {
             width: 49%;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
             overflow: hidden;
             text-align: center;
             img {
@@ -1406,6 +1475,7 @@ footer {
             .social {
                 margin-top: 20px;
                 justify-content: flex-start;
+                flex-wrap: wrap;
 
                 @media (max-width: 992px) {
                     justify-content: center;
@@ -1417,6 +1487,11 @@ footer {
                     font-family: TajawalBold;
                     color: black;
                     margin-inline-end: 10px;
+
+                    @media (max-width: 576px) {
+                        width: 100%;
+                        margin-bottom: 15px;
+                    }
                 }
                 a {
                     height: 40px;
@@ -1458,7 +1533,7 @@ footer {
                 margin-bottom: 15px;
 
                 @media (max-width: 576px) {
-                    width: 40px;
+                    width: 46px;
                 }
             }
             @media (max-width: 576px) {
@@ -1474,11 +1549,15 @@ footer {
 
             img {
                 margin: 0 10px;
-                margin-bottom: 15px;
+                margin-bottom: 10px;
                 @media (max-width: 576px) {
                     width: 47px;
                 }
             }
+        }
+
+        @media (max-width: 576px) {
+            margin-bottom: 10px;
         }
     }
 
@@ -1501,9 +1580,8 @@ footer {
 
             p {
                 width: 100%;
-                order: 2;
                 text-align: center;
-                margin: 10px 0;
+                margin: 5px 0;
             }
         }
     }
@@ -1657,5 +1735,21 @@ html[dir="ltr"] {
                 }
             }
         }
+    }
+}
+
+@keyframes vibe {
+    0%,
+    100% {
+        transform: rotate(0);
+    }
+    25% {
+        transform: rotate(-10deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+    75% {
+        transform: rotate(-10deg);
     }
 }

@@ -28,8 +28,13 @@ $(window).on('load', function () {
 
   $('#nava').click(function (e) {
     if (e.target.id == 'nava' || e.target.id == 'close-nava' || e.target.parentNode.id == "close-nava") {
+      let content = document.getElementById('nava-content');
+      content.style.transform = content.getAttribute('data-trans');
       $(this).removeClass('nava-active');
       $('html').removeClass('overflow');
+      setTimeout(() => {
+        content.style.transform = 'translateX(0)';
+      }, 400);
     }
   });
 
@@ -45,14 +50,20 @@ $(window).on('load', function () {
       $('html').removeClass('overflow');
     }
   });
+  
+  if (window.innerWidth <= 992) {
+    $('.sm-slide').removeClass('top-setting');
+    $('.sm-slide').addClass('slide');
+  }
 
   $(".slide").on("click", function (e) {
     if (e.target.classList.contains('drop')) {
-      console.log(e.target);
       $(this).toggleClass("slide-active");
       $(this).children("ul").slideToggle();
     }
   });
+
+
 
 
   var mySwiper = new Swiper('header .swiper-container', {
@@ -76,7 +87,7 @@ $(window).on('load', function () {
       prevEl: '.swiper-button-prev',
     },
   });
-  
+
   var mySwiper = new Swiper('#about .swiper-container', {
     // Optional parameters
     direction: 'horizontal',
@@ -142,7 +153,7 @@ $(window).on('load', function () {
     direction: 'horizontal',
     loop: true,
     updateOnWindowResize: true,
-    slidesPerView:3,
+    slidesPerView: 3,
     autoplay: false,
     allowTouchMove: false,
 

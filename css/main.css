@@ -206,17 +206,9 @@ ul {
   background-color: white;
 }
 
-.pre-loader svg {
-  margin: auto;
-  background: white;
-  display: block;
-  shape-rendering: auto;
-  width: 200px;
-  height: 200px;
-}
-
-.pre-loader .containe {
-  width: 230px;
+.pre-loader .containe img {
+  animation: vibe 1s ease forwards infinite;
+  max-width: 230px;
 }
 
 .s-container {
@@ -227,7 +219,7 @@ ul {
 
 .s-container .swiper-pagination {
   position: static;
-  margin-top: 50px;
+  margin-top: 30px;
   display: block;
 }
 
@@ -481,15 +473,57 @@ nav .nav-bottom .nav-logo {
 }
 
 nav .nav-bottom .nav-logo img {
-  max-width: 100%;
+  max-width: 255px;
+  width: 100%;
+}
+
+@media (max-width: 992px) {
+  nav .nav-bottom .nav-logo img {
+    max-width: 200px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 992px) {
+  nav .nav-bottom .nav-logo img {
+    max-width: 80%;
+    width: unset;
+  }
 }
 
 @media (max-width: 992px) {
   nav .nav-bottom .nav-logo {
-    width: unset;
+    width: 40%;
+    text-align: center;
   }
-  nav .nav-bottom .nav-logo img {
-    max-width: 75%;
+}
+
+nav .nav-bottom .nav-icons-sm {
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 16px;
+  width: 30%;
+  display: none;
+}
+
+nav .nav-bottom .nav-icons-sm > div {
+  cursor: pointer;
+  font-family: TajawalMedium;
+}
+
+nav .nav-bottom .nav-icons-sm > div span {
+  font-size: 22px;
+  color: black;
+  transition: all 0.5s;
+}
+
+nav .nav-bottom .nav-icons-sm > div:hover span {
+  color: #c72329;
+}
+
+@media (max-width: 992px) {
+  nav .nav-bottom .nav-icons-sm {
+    display: flex;
   }
 }
 
@@ -543,19 +577,9 @@ nav .nav-bottom .nav-icons .nav-currency .setting-anchor img {
   margin-inline-end: 5px;
 }
 
-nav .nav-bottom .nav-icons .menu {
-  display: none;
-}
-
 @media (max-width: 992px) {
-  nav .nav-bottom .nav-icons {
-    width: fit-content;
-  }
   nav .nav-bottom .nav-icons > div {
     margin-inline-start: 25px;
-  }
-  nav .nav-bottom .nav-icons .menu {
-    display: block;
   }
   nav .nav-bottom .nav-icons .user,
   nav .nav-bottom .nav-icons .favourite,
@@ -611,6 +635,28 @@ nav .nava .nava-content > ul .slide .drop:hover {
   color: #c72329;
 }
 
+nav .nava .nava-content > ul .sm-slide .drop {
+  color: black;
+  transition: all 0.5s;
+  font-weight: 500;
+  font-family: TajawalMedium;
+  font-size: 17px;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+nav .nava .nava-content > ul .sm-slide .drop:hover {
+  color: #c72329;
+}
+
+nav .nava .nava-content > ul .sm-slide .drop span {
+  display: none;
+}
+
+nav .nava .nava-content > ul .sm-slide ul {
+  top: calc(100% + 12px);
+}
+
 nav .nava .nava-content > ul .sm-link {
   display: none;
 }
@@ -655,7 +701,7 @@ nav .nava .nava-content .nava-head {
     right: -150%;
     background-color: white;
     height: 100vh;
-    width: 60%;
+    width: 100%;
     transition: all 0.5s;
     flex-direction: column;
     text-align: right;
@@ -665,7 +711,7 @@ nav .nava .nava-content .nava-head {
   nav .nava .nava-content > ul {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     margin-top: 30px;
   }
   nav .nava .nava-content > ul li {
@@ -674,11 +720,29 @@ nav .nava .nava-content .nava-head {
   nav .nava .nava-content > ul li a {
     font-size: 18px;
   }
+  nav .nava .nava-content > ul .sm-slide .drop span {
+    display: inline;
+  }
+  nav .nava .nava-content > ul .slide {
+    width: fit-content;
+  }
+  nav .nava .nava-content > ul .slide .drop {
+    justify-content: center;
+    align-items: center;
+  }
+  nav .nava .nava-content > ul .slide .drop span {
+    margin-inline-start: 5px;
+  }
+  nav .nava .nava-content > ul .slide ul {
+    margin-inline-start: 0;
+    text-align: center;
+  }
   nav .nava .nava-content .nava-head {
     display: flex;
     margin: 9px 0;
     font-size: 17px;
     position: relative;
+    justify-content: center;
   }
   nav .nava .nava-content .nava-head a {
     color: black;
@@ -707,9 +771,6 @@ nav .nava .nava-content .nava-head {
 }
 
 @media (max-width: 576px) {
-  nav .nava .nava-content {
-    width: 85%;
-  }
   nav .nava .nava-content .nava-head {
     font-size: 16px;
   }
@@ -732,6 +793,7 @@ nav .nava-active {
 
 nav .nava-active .nava-content {
   right: 0;
+  left: unset;
   min-height: 100%;
   max-height: 100%;
   height: 100%;
@@ -741,12 +803,12 @@ nav .nava-active .nava-content {
 .up {
   height: 50px;
   width: 50px;
-  background-color: #c72329;
+  background-color: #c72329a6;
+  right: 20px;
+  bottom: 30px;
   color: white;
   font-size: 17px;
   position: fixed;
-  right: 45px;
-  bottom: 125px;
   z-index: 999;
   border-radius: 100%;
   cursor: pointer;
@@ -1223,7 +1285,7 @@ header .swiper-container .swiper-slide img {
 
 #categories .categories-head h2 {
   font-size: 26px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   font-family: TajawalBold;
   text-transform: capitalize;
 }
@@ -1257,7 +1319,7 @@ header .swiper-container .swiper-slide img {
 @media (max-width: 768px) {
   #categories .categories-body .banner {
     width: 100%;
-    margin: 20px 0;
+    margin: 30px 0;
   }
 }
 
@@ -1317,7 +1379,7 @@ header .swiper-container .swiper-slide img {
 
 #best-seller .best-seller-banner .banner {
   width: 49%;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   overflow: hidden;
   text-align: center;
 }
@@ -1684,6 +1746,7 @@ footer .footer-top .mail .form-group input::placeholder {
 footer .footer-top .mail .social {
   margin-top: 20px;
   justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 @media (max-width: 992px) {
@@ -1698,6 +1761,13 @@ footer .footer-top .mail .social h2 {
   font-family: TajawalBold;
   color: black;
   margin-inline-end: 10px;
+}
+
+@media (max-width: 576px) {
+  footer .footer-top .mail .social h2 {
+    width: 100%;
+    margin-bottom: 15px;
+  }
 }
 
 footer .footer-top .mail .social a {
@@ -1741,7 +1811,7 @@ footer .payment .top img {
 
 @media (max-width: 576px) {
   footer .payment .top img {
-    width: 40px;
+    width: 46px;
   }
 }
 
@@ -1761,12 +1831,18 @@ footer .payment .bottom {
 
 footer .payment .bottom img {
   margin: 0 10px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 @media (max-width: 576px) {
   footer .payment .bottom img {
     width: 47px;
+  }
+}
+
+@media (max-width: 576px) {
+  footer .payment {
+    margin-bottom: 10px;
   }
 }
 
@@ -1792,9 +1868,8 @@ footer .credit p {
   }
   footer .credit p {
     width: 100%;
-    order: 2;
     text-align: center;
-    margin: 10px 0;
+    margin: 5px 0;
   }
 }
 
@@ -1916,5 +1991,21 @@ html[dir="ltr"] footer .footer-top .mail .form-group a {
 html[dir="ltr"] footer .footer-top .mail .form-group input {
   padding-right: unset;
   padding-left: 30px;
+}
+
+@keyframes vibe {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
 }
 /*# sourceMappingURL=main.css.map */
